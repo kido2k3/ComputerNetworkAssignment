@@ -1,0 +1,79 @@
+Nội dung present: 
+Mỗi nhóm có khoảng 15' để present, 10' hỏi đáp, 5' dự phòng
+
+Giới thiệu ngắn gọn đề tài, công nghệ sử dụng
+Trình bày các tính năng đã thực hiện (tập trung vào tính năng bonus, nếu có)
+Hỏi đáp
+------------------------------------------------------------------
+Assignment 1:
+Voting: 10%
+
+Report: 20%
+
+Presentation: 20%
+
+Demo: 50%
+
+------------------------------------------------------------------
+Detailed Score Barem for the Presentation:
+I. Presentation
+
+Presents the project in a clear and organized way.
+Provides a demonstration of the project's functionality.
+Answers questions about the project.
+II. Testing
+
+Demonstrates that the project works as expected.
+Performs appropriate testing to ensure the project meets the requirements.
+Provides evidence of testing, such as screenshots or videos.
+
+------------------------------------------------------------------
+Detailed Score Barem for the Demo: 
+(The actual score barem may vary depending on the specific requirements and expectations of the course or instructor.)
+
+I. Basic functions (8 points)
+A. Server functions (2 points)
+
+
+Administrator 
+Maintains a list of connected clients and their files.
+Responds appropriately to client requests.
+Command-shell interpreter: 'discover', 'ping'
+B. Client functions (2 points)
+
+Sign in / Sign up
+Informs the server about the files it has.
+Sends requests to the server for file retrieval.
+Command-shell interpreter: 'publish', 'fetch'
+C. File transfer (2 points)
+
+Successfully transfers files between clients without server intervention.
+Handles simultaneous downloads using multithreading.
+D. UI/UX design (2 points)
+
+II. Extend functions (2 points)
+(The actual score barem may vary depending on the specific requirements and expectations of the course or instructor.)
+
+(Below are some suggested features, while additional features will receive bonus scores)
+
+A. Error Handling and Robustness 
+
+
+Effectively handles error cases (e.g., file not found, client disconnects).
+Demonstrates robustness under various scenarios.
+B. Efficiency and Scalability 
+
+Code demonstrates efficiency in terms of resource utilization.
+
+
+Application design shows scalability potential for a larger number of clients.
+
+C. Session statistics
+
+D. Deploy on browser + desktop app
+
+E. Security
+
+F. Database
+
+G. UI/UX design

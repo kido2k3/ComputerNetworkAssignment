@@ -1,0 +1,64 @@
+Nội dung present: 
+
+Mỗi nhóm có khoảng 15' để present, 10' hỏi đáp, 5' dự phòng
+
+Giới thiệu ngắn gọn đề tài, công nghệ sử dụng
+Trình bày các tính năng đã thực hiện (tập trung vào tính năng bonus, nếu có)
+Hỏi đáp
+------------------------------------------------------------------
+Assignment 2:
+Voting: 10%
+
+Report: 20%
+
+Presentation: 20%
+
+Demo: 50%
+
+------------------------------------------------------------------
+Detailed Score Barem for the Presentation:
+I. Presentation
+
+Presents the project in a clear and organized way.
+Provides a demonstration of the project's functionality.
+Answers questions about the project.
+II. Testing
+
+Demonstrates that the project works as expected.
+Performs appropriate testing to ensure the project meets the requirements.
+Provides evidence of testing, such as screenshots or videos.
+
+------------------------------------------------------------------
+Detailed Score Barem for the Demo: 
+(The actual score barem may vary depending on the specific requirements and expectations of the course or instructor.)
+
+Step 1 (1 point): Find out suitable network structures for buildings
+
+Analyze the network system requirements of Headquarters and Branches.
+Create a checklist to be surveyed at the installation locations.
+Define areas with high load (network load) to select the appropriate device configuration (load balancers are placed in necessary locations).
+Choose a network structure that matches the building's architecture with convenience and aesthetics.
+Design the network usage in a wireless environment, applying network security standards and setting up partitions for network servers and devices (e.g., Server farm, DMZ, Firewall, ...).
+Step 2 (1 point): List of minimum equipment, IP plan, and wiring diagram (cabling)
+
+Provide a list of recommended equipment with typical specifications.
+Create a schematic physical setup of the network.
+Create a WAN connection diagram between Headquarters and Branches (using new WAN technology such as SD-WAN, MPLS, and OSPF routing protocol).
+Step 3 (1 point): Calculate the required throughput, and expected bandwidth from ISP, then suggest the configuration for the company network
+
+Step 4 (2 points): Design the network map using Packet Tracer or GNS3 simulation software
+
+Step 5 (2 points): Test the system with popular tools such as ping, and traceroute, etc. on the simulated system.
+
+Step 6 (2 points): Re-evaluate the designed network system through the following features: reliability, ease of upgrade, diverse support software, safety, network security, etc.
+
+Address any remaining problems for the project.
+Provide a development orientation for the future.
+Step 7 (1 point): Upload the simulation file (using Packet Tracer or GNS-3) and the project report to BKeL before the deadline.
+
+Bonus:
+
+Apply a security plan.
+Add firewalls and configure ACLs.
+Implement IDS/IPS.
+Edit a security best practice guide.

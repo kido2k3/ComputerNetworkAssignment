@@ -5,7 +5,7 @@ A hierarchical design --> collapsed core architecture
 Because cost-effective result --> vlan technique
 30 hosts, two-floor building, 1st floor is only for IT and server --> 1st floor needs 1 switch, 2nd floor needs 2 switches
 1 router to connect 3 switches and wan
-Assume each department has 6 Pcs
+Assume each department has 6 Pcs and each floor should have a general-printer place and a access point for wifi.
 VLAN name	Number ports	Note
 SERVER		4
 IT		10
@@ -29,8 +29,7 @@ A hierarchical design --> collapsed core architecture
 Because cost-effective result --> vlan technique
 30 hosts, two-floor building, 1st floor is only for IT and server --> 1st floor needs 1 switch, 2nd floor needs 2 switches
 1 router to connect 3 switches and wan
-Assume each department has 6 Pcs
-
+Assume each department has 6 Pcs, each floor should have a general-printer place and a access point for wifi
 VLAN name	Number ports	Note
 SERVER		4
 IT		10
@@ -51,11 +50,14 @@ UNUSED		3
 network add: 162.198.105.0
 A hierarchical design --> 3-tier architecture
 7 departments and one cabling central center
+120 hosts, two-floor building, 1st floor is only for IT and server.
 Because focus on speed --> subnetting technique
-F1
-162.198.105.0/27
-162.198.105.1/27-162.198.105.30/27
-162.198.105.31/27
+one vlan for one floor
+Assume a department has 18 pcs, each floor should have a general-printer place and a access point for wifi
+F1 (FLOOR1)
+Network address: 162.198.105.0/27
+valid ip: 162.198.105.1/27-162.198.105.30/27 
+broadcast address: 162.198.105.31/27
 F2
 162.198.105.32/27
 162.198.105.33/27-162.198.105.62/27

@@ -2,21 +2,23 @@
   "users": [
     {
       "name": "chinhan1405",
-      "peerID": "123456789",
+      "peerID": "lksadjfooiu298kmmv",
+      "online": false,
       "files": [
-        { "name": "file1", "path": "http://google.com" },
-        { "name": "file2", "path": "http://google.com" },
-        { "name": "code.js", "path": "x/y/z/code.js" },
-        { "name": "a.html", "path": "s/se/f/a.html" },
-        { "name": "s.html", "path": "s/se/f/s.html" }
+        { "fname": "file1", "lname": "http://google.com" },
+        { "fname": "file2", "lname": "http://google.com" },
+        { "fname": "code.js", "lname": "x/y/z/code.js" },
+        { "fname": "a.html", "lname": "s/se/f/a.html" },
+        { "fname": "s.html", "lname": "s/se/f/s.html" }
       ]
     },
     {
       "name": "ntnt111",
       "peerID": "123456789",
+      "online": false,
       "files": [
-        { "name": "file3", "path": "http://google.com" },
-        { "name": "file4", "path": "http://google.com" }
+        { "fname": "file3", "lname": "http://google.com" },
+        { "fname": "file4", "lname": "http://google.com" }
       ]
     }
   ]

@@ -15,68 +15,106 @@ app.get('/', function(req, res) {
 });
 
 app.get('/users', function(req, res) {
-    var result = []
-    data.users.forEach(user => {result.push(user.name)})
-    res.send(result)
+    var reply = {"result" : []}
+    data.users.forEach(user => {reply.result.push(user.name)})
+    res.send(reply)
 });
 
 app.get('/id/:username', function(req, res) {
-    data.users.forEach(user => {
-        if (user.name == req.params.username) {
-            res.send(user.peerID)
+    for (var i = 0; i < data.users.length; i++) {
+        if (data.users[i].name == req.params.username) {
+            res.send({"peerID" : data.users[i].peerID})
+            return
         }
-    })
-    res.send({"error" : "user not found"})
+    }
+    res.send({"peerID" : ""})
 });
 
 app.get('/userfiles/:username/', function(req, res) {
-    data.users.forEach(user => {
-        if (user.name === req.params.username) {
-            res.send(user.files)
+    for (var i = 0; i < data.users.length; i++) {
+        if (data.users[i].name === req.params.username) {
+            res.send({"result" : data.users[i].files})
+            return
         }
-    })
-    res.send({"error" : "user not found"})
+    }
+    res.send({"result" : "user not found"})
 });
 
-app.get('/file/:filename', function(req, res) {
+app.get('/files', function(req, res) {
+    reply = {"result" : []}
     data.users.forEach(user => {
         user.files.forEach(file => {
-            if (file.name === req.params.filename) {
-                res.send({"user" : user.name, "peerID" : user.peerID, "file" : file});
-            }
+            reply.result.push({username : user.name, fname : file.fname, lname : file.lname})
         })
     })
-    res.send({"error" : "file not found"});
+    res.send(reply)
 });
+
+app.get('/file/:fname', function(req, res) {
+    for (var i = 0; i < data.users.length; i++) {
+        for (var j = 0; j < data.users[i].files.length; j++) {
+            if (data.users[i].files[j].fname == req.params.fname) {
+                res.send({
+                    "result" : {
+                        "name" : data.users[i].name,
+                        "peerID" : data.users[i].peerID,
+                        "online" : data.users[i].online,
+                        "file" : data.users[i].files[j]
+                    }
+                })
+                return
+            }
+        }
+    }
+    res.send({"result" : "file not found"});
+});
+
 
 
 app.post('/user', function(req, res) {
-    var username = req.body.name
+    var username = req.body.username
     var peerID = req.body.peerID
     for (var i = 0; i < data.users.length; i++) {
         if (data.users[i].name == username) {
+            data.users[i].peerID = peerID
             res.send(data.users[i]);
             return
         }
     }
-    var user = {"name" : username, "peerID": peerID, "files" : []}
+    var user = {"name" : username, "peerID": peerID, "online": true, "files" : []}
     data.users.push(user)
     res.send(user)
 });
 
 app.post('/file', function(req, res) {
-    var username = req.body.name
-    var filepath = req.body.path
-    var pathsplit = filepath.split('/')
-    var file = {"name" : pathsplit[pathsplit.length-1], "path" : filepath}
+    var username = req.body.username
+    var fname = req.body.fname
+    var lname = req.body.lname
+    var file = {"fname" : fname, "lname" : lname}
     for (var i = 0; i < data.users.length; i++) {
         if (data.users[i].name == username) {
             data.users[i].files.push(file)
-            res.send(file)
+            res.send({
+                "result" : {
+                    "name" : data.users[i].name,
+                    "file" : file
+                }
+            })
             return
         }
     }
-    res.send({"error" : "user not found"});
+    res.send({"result" : "user not found"});
+});
+
+app.put('/offline/:username', function(req, res) {
+    for (var i = 0; i < data.users.length; i++) {
+        if (data.users[i].name == req.params.username) {
+            data.users[i].online = false
+            res.send(data.users[i])
+            return
+        }
+    }
+    res.send({"error" : "user not found"})
 });
 
 
@@ -85,11 +123,11 @@ app.delete('/user/:username', function(req, res) {
         if (data.users[i].name == req.params.username) {
             const deletedUser = data.users[i]
             data.users.splice(i,1)
-            res.send(deletedUser)
+            res.send({"result" : deletedUser})
             return
         }
     }
-    res.send({"error" : "user not found"})
+    res.send({"result" : "user not found"})
 });
 
 //Every 10 seconds, auto-update the json file for back-up.

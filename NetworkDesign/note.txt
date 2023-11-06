@@ -1,0 +1,88 @@
+	for Ha Noi branch
+network add: 162.198.103.0
+A hierarchical design --> collapsed core architecture
+5 departments and one cabling central center
+Because cost-effective result --> vlan technique
+30 hosts, two-floor building, 1st floor is only for IT and server --> 1st floor needs 1 switch, 2nd floor needs 2 switches
+1 router to connect 3 switches and wan
+Assume each department has 6 Pcs and each floor should have a general-printer place and a access point for wifi.
+VLAN name	Number ports	Note
+SERVER		4
+IT		10
+NETWORKDEVICE	3		for AP and printer
+UNUSED		7
+
+ACC		10
+RM		10
+NETWORKDEVICE	2		for printer
+UNUSED		2
+
+HR		10
+SERVICE		10
+NETWORKDEVICE	1		for AP
+UNUSED		3
+
+	for Hai Phong branch
+network add: 162.198.104.0
+A hierarchical design --> collapsed core architecture
+5 departments and one cabling central center
+Because cost-effective result --> vlan technique
+30 hosts, two-floor building, 1st floor is only for IT and server --> 1st floor needs 1 switch, 2nd floor needs 2 switches
+1 router to connect 3 switches and wan
+Assume each department has 6 Pcs, each floor should have a general-printer place and a access point for wifi
+VLAN name	Number ports	Note
+SERVER		4
+IT		10
+NETWORKDEVICE	3		for AP and printer
+UNUSED		7
+
+ACC		10
+RM		10
+NETWORKDEVICE	2		for printer
+UNUSED		2
+
+HR		10
+SERVICE		10
+NETWORKDEVICE	1		for AP
+UNUSED		3
+
+	for Ho Chi Minh Headquarter
+network add: 162.198.105.0
+A hierarchical design --> 3-tier architecture
+7 departments and one cabling central center
+120 hosts, two-floor building, 1st floor is only for IT and server.
+Because focus on speed --> subnetting technique
+one vlan for one floor
+Assume a department has 18 pcs, each floor should have a general-printer place and a access point for wifi
+F1 (FLOOR1)
+Network address: 162.198.105.0/27
+valid ip: 162.198.105.1/27-162.198.105.30/27 
+broadcast address: 162.198.105.31/27
+F2
+162.198.105.32/27
+162.198.105.33/27-162.198.105.62/27
+162.198.105.63/27
+F3
+162.198.105.64/27
+162.198.105.65/27-162.198.105.94/27
+162.198.105.95/27
+F4
+162.198.105.96/27
+162.198.105.97/27-162.198.105.126/27
+162.198.105.127/27
+F5
+162.198.105.128/27
+162.198.105.129/27-162.198.105.158/27
+162.198.105.159/27
+F6
+162.198.105.160/27
+162.198.105.161/27-162.198.105.190/27
+162.198.105.191/27
+F7
+162.198.105.192/27
+162.198.105.193/27-162.198.105.222/27
+162.198.105.223/27
+Unused
+162.198.105.224/27
+162.198.105.225/27-162.198.105.254/27
+162.198.105.255/27

@@ -1,0 +1,38 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  overflow-y: hidden;
+}
+
+th,
+tr {
+  border-bottom: 1px solid #484848;
+  text-align: left;
+  padding: 8px;
+}
+td {
+  border-bottom: 1px solid #dcdcdc;
+  text-align: left;
+  padding: 8px;
+}
+table {
+  overflow: auto;
+}
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

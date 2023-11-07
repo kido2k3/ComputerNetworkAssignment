@@ -14,7 +14,7 @@ export default function App() {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("http://192.168.137.1:3000/allFile", requestOptions)
+    fetch("http://localhost:3000/allFile", requestOptions)
       .then((res) => res.json())
       .then((data) => {});
   }, []);
@@ -23,7 +23,7 @@ export default function App() {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     };
-    fetch("http://192.168.137.1:3000/allSharedFile", requestOptions)
+    fetch("http://localhost:3000/allSharedFile", requestOptions)
       .then((res) => res.json())
       .then((data) => {});
   }, []);

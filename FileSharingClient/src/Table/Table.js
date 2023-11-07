@@ -25,7 +25,7 @@ export default function Table() {
     setFile("");
   }, [open]);
   useEffect(() => {
-    fetch(`http://192.168.137.1:3000/userfiles/${username}`)
+    fetch(`http://localhost:3000/userfiles/${username}`)
       .then((res) => res.json())
       .then((data) => setTableData(data.result));
   }, [username]);
@@ -41,10 +41,10 @@ export default function Table() {
           lname: file?.name,
         }),
       };
-      fetch("http://192.168.137.1:3000/file", requestOptions)
+      fetch("http://localhost:3000/file", requestOptions)
         .then((res) => res.json())
         .then((data) => {
-          fetch(`http://192.168.137.1:3000/userfiles/${username}`)
+          fetch(`http://localhost:3000/userfiles/${username}`)
             .then((res) => res.json())
             .then((data) => {
               setTableData(data.result);
@@ -90,8 +90,8 @@ export default function Table() {
             sender: link?.peer,
           }),
         };
-        fetch("http://192.168.137.1:3000/sharedFile", requestOptions).then(
-          (res) => res.json()
+        fetch("http://localhost:3000/sharedFile", requestOptions).then((res) =>
+          res.json()
         );
       });
     });

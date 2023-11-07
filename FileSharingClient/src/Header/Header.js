@@ -15,7 +15,7 @@ export default function Header() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: userName, peerID: userName }),
       };
-      fetch("http://192.168.137.1:3000/user", requestOptions)
+      fetch("http://localhost:3000/user", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           dispatch(

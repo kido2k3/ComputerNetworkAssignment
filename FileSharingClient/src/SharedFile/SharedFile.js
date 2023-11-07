@@ -6,7 +6,7 @@ export default function SharedFile() {
   const { username } = useSelector((state) => state.AuthReducer);
   const [list, setList] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.137.1:3000/sharedfiles/" + username)
+    fetch("http://localhost:3000/sharedfiles/" + username)
       .then((res) => res.json())
       .then((data) => {
         setList(data.result);

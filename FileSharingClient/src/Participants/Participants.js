@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 export default function Participants() {
   const [participants, setParticipants] = useState([]);
   useEffect(() => {
-    fetch("http://192.168.137.1:3000/users")
+    fetch("http://localhost:3000/users")
       .then((res) => res.json())
       .then((data) => {
         setParticipants(data?.result);

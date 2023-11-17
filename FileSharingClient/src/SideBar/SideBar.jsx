@@ -5,6 +5,8 @@ import { updateIsTab } from "../Redux/Reducer/LoadingReducer";
 
 export default function SideBar() {
   const { isTab } = useSelector((state) => state.LoadingReducer);
+  const { username } = useSelector((state) => state.AuthReducer);
+
   const dispatch = useDispatch();
   return (
     <Box
@@ -45,7 +47,9 @@ export default function SideBar() {
       </Box>
       <Box
         onClick={() => {
-          dispatch(updateIsTab(false));
+          if (username !== "") {
+            dispatch(updateIsTab(false));
+          }
         }}
         sx={{
           display: "flex",

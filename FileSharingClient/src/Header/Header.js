@@ -2,7 +2,12 @@ import { Box, Dialog, Typography } from "@mui/material";
 import Peer from "peerjs";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
-import { updateUserInfo, updateUserPeer } from "../Redux/Reducer/AuthReducer";
+import {
+  updateListFile,
+  updateLogout,
+  updateUserInfo,
+  updateUserPeer,
+} from "../Redux/Reducer/AuthReducer";
 export default function Header() {
   const { username, peerID } = useSelector((state) => state.AuthReducer);
   const [open, setOpen] = useState(false);
@@ -28,6 +33,19 @@ export default function Header() {
           setOpen(false);
         });
     }
+  };
+  const handleOnClickLogOut = () => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: userName }),
+    };
+    fetch("http://localhost:3000/logout", requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(updateLogout());
+        dispatch(updateListFile([]));
+      });
   };
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -68,7 +86,7 @@ export default function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          width: "350px",
+          width: "500px",
         }}
       >
         <button
@@ -87,10 +105,31 @@ export default function Header() {
         <i style={{ color: "#777777" }} className="fa-solid fa-paperclip"></i>
         <i style={{ color: "#777777" }} className="fa-solid fa-bell"></i>
         {username !== "" && peerID !== "" ? (
-          <i
-            style={{ fontSize: "40px", color: "rgb(244, 194, 42)" }}
-            className="fa-solid fa-circle-user"
-          ></i>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            {" "}
+            <i
+              style={{
+                fontSize: "40px",
+                color: "rgb(244, 194, 42)",
+              }}
+              className="fa-solid fa-circle-user"
+            ></i>
+            <Typography
+              sx={{
+                marginLeft: "20px",
+                backgroundColor: "#c2e7ff",
+                padding: "7px 20px",
+                borderRadius: "5px",
+              }}
+            >
+              {username}
+            </Typography>
+            <i
+              onClick={handleOnClickLogOut}
+              style={{ marginLeft: "20px", cursor: "pointer" }}
+              className="fa-solid fa-arrow-right-from-bracket"
+            ></i>
+          </Box>
         ) : (
           <button
             onClick={() => {

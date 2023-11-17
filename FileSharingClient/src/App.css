@@ -36,3 +36,11 @@ table {
     transform: rotate(360deg);
   }
 }
+ul li::before {
+  content: "\2022";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}

@@ -1,0 +1,4 @@
+.connectButton:hover {
+  background-color: #d5a000 !important;
+  transition: 0.3s;
+}

@@ -52,6 +52,15 @@ app.get("/userfiles/:username/", function (req, res) {
   }
   res.send({ result: "user not found" });
 });
+app.get("/online/:username/", function (req, res) {
+  for (var i = 0; i < data.users.length; i++) {
+    if (data.users[i].name === req.params.username) {
+      res.send({ online: data.users[i].online, username: data.users[i].name });
+      return;
+    }
+  }
+  res.send({ result: "user not found" });
+});
 app.get("/sharedfiles/:username/", function (req, res) {
   for (var i = 0; i < data.users.length; i++) {
     if (data.users[i].name === req.params.username) {
@@ -101,6 +110,7 @@ app.post("/user", function (req, res) {
   for (var i = 0; i < data.users.length; i++) {
     if (data.users[i].name === username) {
       data.users[i].peerID = peerID;
+      data.users[i].online = true;
       res.send(data.users[i]);
       return;
     }
@@ -116,6 +126,18 @@ app.post("/user", function (req, res) {
   res.send(user);
 });
 
+app.post("/logout", function (req, res) {
+  var username = req.body.username;
+  for (var i = 0; i < data.users.length; i++) {
+    if (data.users[i].name === username) {
+      data.users[i].online = false;
+      data.users[i].files = [];
+      data.users[i].sharedFile = [];
+      res.send({ message: "Log out successfully!!!" });
+      return;
+    }
+  }
+});
 app.post("/file", function (req, res) {
   var username = req.body.username;
   var fname = req.body.fname;

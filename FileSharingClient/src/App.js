@@ -5,10 +5,10 @@ import "./App.css";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import LoadingEffect from "./LoadingEffect/LoadingEffect";
-import FileTransfer from "./FileTransfer";
 
 export default function App() {
   const { openLoading } = useSelector((state) => state.LoadingReducer);
+
   useEffect(() => {
     const requestOptions = {
       method: "DELETE",

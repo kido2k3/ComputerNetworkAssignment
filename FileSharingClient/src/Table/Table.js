@@ -9,7 +9,7 @@ import {
   getMimeTypeFromArrayBuffer,
   randomString,
 } from "../service/handleFetchData";
-
+import "./Table.css";
 export default function Table() {
   const [open, setOpen] = useState(false);
   const [fname, setFName] = useState("");
@@ -25,9 +25,13 @@ export default function Table() {
     setFile("");
   }, [open]);
   useEffect(() => {
-    fetch(`http://localhost:3000/userfiles/${username}`)
-      .then((res) => res.json())
-      .then((data) => setTableData(data.result));
+    if (username !== "") {
+      fetch(`http://localhost:3000/userfiles/${username}`)
+        .then((res) => res.json())
+        .then((data) => setTableData(data.result));
+    } else {
+      setTableData([]);
+    }
   }, [username]);
 
   const handleOnClickUpLoad = () => {
@@ -96,7 +100,6 @@ export default function Table() {
       });
     });
   }, [newPeer, username]);
-  console.log("Peer Name: ", peername);
   return (
     <Box
       sx={{
@@ -144,6 +147,7 @@ export default function Table() {
         }}
       />
       <button
+        className="connectButton"
         onClick={handleOnClickConnect}
         style={{
           border: "none",

@@ -32,6 +32,11 @@ export const updateSharedFile = (data) => {
     payload: data,
   };
 };
+export const updateLogout = (data) => {
+  return {
+    type: "LOG_OUT",
+  };
+};
 const AuthReducer = (
   state = {
     username: "",
@@ -81,6 +86,13 @@ const AuthReducer = (
       return {
         ...state,
         sharedFile: payload,
+      };
+    }
+    case "LOG_OUT": {
+      return {
+        ...state,
+        username: "",
+        peerID: "",
       };
     }
     default:

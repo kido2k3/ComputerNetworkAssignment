@@ -1,3 +1,4 @@
+
 	for Ha Noi branch
 network add: 162.198.103.0
 A hierarchical design --> collapsed core architecture
